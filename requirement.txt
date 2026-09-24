@@ -2,3 +2,4 @@ pymango
 langchain
 dotenv
 flask
+gunicorn

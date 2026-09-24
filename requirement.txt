@@ -1,2 +1,4 @@
 pymango
 langchain
+dotenv
+flask

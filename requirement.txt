@@ -1,5 +1,5 @@
 pymango
-langchain
-dotenv
-flask
+Flask
 gunicorn
+python-dotenv
+dotenv

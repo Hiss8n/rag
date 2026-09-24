@@ -1,6 +1,5 @@
 import os
 from huggingface_hub import InferenceClient
-from sentence_transformers import SentenceTransformer
 from dotenv import load_dotenv
 
 

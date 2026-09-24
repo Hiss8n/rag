@@ -1,0 +1,15 @@
+node_modules
+__pychache__
+Scripts
+./Lib
+Lib
+/Lib
+
+/venv/
+Lib
+.env
+env
+
+.env
+venv/
+__pycache__/

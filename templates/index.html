@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Movie Search</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        input {
+            flex: 1;
+            padding: 12px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+
+        .movie {
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .score {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .genres {
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Movie Vector Search</h1>
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="query"
+            placeholder="Describe the movie you are looking for..."
+            value="{{ query }}"
+            required
+        >
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+
+    {% if query %}
+
+        <h2>Results for: "{{ query }}"</h2>
+
+    {% endif %}
+
+
+    {% for movie in results %}
+
+        <div class="movie">
+
+            <h2>{{ movie.title }}</h2>
+
+            <p>
+                {{ movie.plot }}
+            </p>
+
+            {% if movie.genres %}
+                <p class="genres">
+                    Genres: {{ movie.title | join(", ") }}
+                </p>
+            {% endif %}
+
+            <p class="score">
+                Vector similarity: {{ "%.2f"|format(movie['hf_embedded']*100)}}%
+            </p>
+
+        </div>
+
+    {% else %}
+
+        {% if query %}
+            <p>No movies found.</p>
+        {% endif %}
+
+    {% endfor %}
+
+</body>
+</html>

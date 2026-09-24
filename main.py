@@ -3,7 +3,6 @@ from crude import movies_coll
 from embedding import create_embeddings
 from flask import Flask,render_template,request
 m_movies=get_movies()
-
 app=Flask(__name__)
 
 """ 
